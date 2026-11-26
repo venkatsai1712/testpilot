@@ -8,4 +8,12 @@ export default defineConfig({
     apply: 'serve',
   },
   plugins: [react()],
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true,
+      },
+    },
+  },
 })
